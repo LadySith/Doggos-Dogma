@@ -24,6 +24,8 @@ public class Bowl : MonoBehaviour
             {
                 x.DestroyDice();
             }
+
+            dicePool.Clear();
         }
 
         for (int i = 0; i < diceCount; i++)

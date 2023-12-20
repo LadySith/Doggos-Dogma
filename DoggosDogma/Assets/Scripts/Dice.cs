@@ -77,6 +77,6 @@ public class Dice : MonoBehaviour
 
     public void DestroyDice()
     {
-        Destroy(this);
+        Destroy(gameObject);
     }
 }
