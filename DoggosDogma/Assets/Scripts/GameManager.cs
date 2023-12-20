@@ -1,7 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
+public enum GameState
+{
+    GENERATEGRID = 0,
+    MAP = 1,
+    STARTBATTLE = 2,
+    BRUNOTURN = 3,
+    ENEMYTURN = 4,
+    WIN = 5,
+    LOSE = 6
+}
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
@@ -23,10 +33,5 @@ public class GameManager : MonoBehaviour
         
     }
 
-    public enum GameState
-    {
-        GenerateGrid = 0,
-        BrunoTurn = 1,
-        EnemyTurn =2
-    }
+    
 }

@@ -28,4 +28,9 @@ public class Unit : MonoBehaviour
         if (currentHP > maxHP)
             currentHP = maxHP;
     }
+
+    public override string ToString()
+    {
+        return base.ToString();
+    }
 }

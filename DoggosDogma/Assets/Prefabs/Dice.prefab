@@ -131,7 +131,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d9ba596ad51c234081f6f9b8c129d13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  diceSides: []
+  diceSides:
+  - {fileID: 21300000, guid: 3948d5a37ca60644fb81762df8f0f299, type: 3}
+  - {fileID: 21300000, guid: 26930e3162ebc214b9423b1d89a3f708, type: 3}
+  - {fileID: 21300000, guid: 9825fdfdf914a1b45b86e6bc8d3e50e9, type: 3}
+  - {fileID: 21300000, guid: 2727b586ed778864bbb7ec3315dcaee2, type: 3}
+  - {fileID: 21300000, guid: 0fb5bf7ada7528344bcdb2e891692c19, type: 3}
+  - {fileID: 21300000, guid: d5ad899f4d9338940a86d2e68747bf08, type: 3}
+  rend: {fileID: 7105561059081890483}
   bowl: {fileID: 0}
 --- !u!50 &-938371029764869642
 Rigidbody2D:
