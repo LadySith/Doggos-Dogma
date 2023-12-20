@@ -11,18 +11,30 @@ public class Unit : MonoBehaviour
 
     public int maxHP;
     public int currentHP;
-    public Move currentMove;
+    public Move move1;
+    public Move move2;
+    public Move move3;
+    public Move move4;
 
     public List<Move> moveList;
 
     private void Start()
     {
-        currentMove = moveList[0];
+        move1 = moveList[0];
+        move2 = moveList[1];
+        move3 = moveList[2];
+        move4 = moveList[3];
     }
 
-    public bool TakeDamage(int dmg)
+    public bool updateHealth(int amount)
     {
-        currentHP += dmg;
+        if (amount >= 0)
+        {
+            currentHP += amount;
+        } else
+        {
+            Heal(amount);
+        }
 
         if (currentHP <= 0)
             return true;

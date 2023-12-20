@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST}
 
@@ -22,6 +23,8 @@ public class BattleSystem : MonoBehaviour
 
     public TextMeshProUGUI dialogueText;
 
+    public Bowl bowl;
+
     public BattleState state;
     // Start is called before the first frame update
     void Start()
@@ -34,7 +37,9 @@ public class BattleSystem : MonoBehaviour
     {
         //GameObject playerGO = Instantiate(playerPrefab, playerBattleStation);
         playerUnit = GameManager.instance.player;
+        playerUnit.transform.position = playerBattleStation.transform.position;
         playerUnit.setVisible(true);
+        bowl.setUpBoard(playerUnit);
 
         GameObject enemyGO = Instantiate(enemyPrefab, enemyBattleStation);
         enemyUnit = enemyGO.GetComponent<Unit>();
@@ -56,7 +61,7 @@ public class BattleSystem : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
 
-        bool isDead = enemyUnit.TakeDamage(playerUnit.currentMove.healthPoints);
+        bool isDead = enemyUnit.updateHealth(playerUnit.move1.healthPoints);
 
         enemyHUD.SetHP(enemyUnit);
 
@@ -86,11 +91,12 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator EnemyTurn()
     {
+        bowl.setUpBoard(enemyUnit);
         dialogueText.text = enemyUnit.unitName + " attacks!";
 
         yield return new WaitForSeconds(1f);
 
-        bool isDead = playerUnit.TakeDamage(enemyUnit.currentMove.healthPoints);
+        bool isDead = playerUnit.updateHealth(enemyUnit.move1.healthPoints);
 
         playerHUD.SetHP(playerUnit);
 
@@ -152,5 +158,21 @@ public class BattleSystem : MonoBehaviour
 
         state = BattleState.PLAYERTURN;
         StartCoroutine(EnemyTurn());
+    }
+
+    public void OnFleeButton()
+    {
+        StartCoroutine(Flee());
+    }
+
+    IEnumerator Flee()
+    {
+        dialogueText.SetText("Let's get outta here!");
+
+        yield return new WaitForSeconds(2f);
+
+        playerUnit.setVisible(false);
+
+        SceneManager.LoadScene("Game");
     }
 }

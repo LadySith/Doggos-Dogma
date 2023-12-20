@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GridManager : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class GridManager : MonoBehaviour
     [SerializeField] private Transform cam;
     [SerializeField] private TextMeshProUGUI panelTextBox;
 
-    private Dictionary<Vector2, Tile> tiles;
+    Dictionary<Vector2, Tile> tiles;
 
     private void Start()
     {
@@ -20,7 +21,7 @@ public class GridManager : MonoBehaviour
 
     void GenerateGrid()
     {
-        tiles = new Dictionary<Vector2, Tile>();
+        tiles = GameManager.instance.tiles;
         var homeX = Random.Range(0, width - 1);
         var homeY = Random.Range(0, height - 1);
         var spawnedHome = Instantiate(homeTile,new Vector3(homeX,homeY),Quaternion.identity);

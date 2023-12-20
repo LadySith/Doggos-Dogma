@@ -43,5 +43,11 @@ public class Bowl : MonoBehaviour
         }
     }
 
-
+    public void setUpBoard(Unit unit)
+    {
+        Move1Text.SetText((unit.move1 != null) ? unit.move1.name : "");
+        Move2Text.SetText((unit.move2 != null) ? unit.move2.name : "");
+        Move3Text.SetText((unit.move3 != null) ? unit.move3.name : "");
+        Move4Text.SetText((unit.move4 != null) ? unit.move4.name : "");
+    }
 }

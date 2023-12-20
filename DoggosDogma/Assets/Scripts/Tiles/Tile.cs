@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public abstract class Tile : MonoBehaviour
@@ -25,5 +26,11 @@ public abstract class Tile : MonoBehaviour
     {
         highlight.SetActive(false);
         panelText.SetText("");
+    }
+
+    private void OnMouseDown()
+    {
+        GameManager.instance.enemy = unit;
+        SceneManager.LoadScene("BattleScene");
     }
 }

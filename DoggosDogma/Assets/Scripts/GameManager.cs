@@ -25,7 +25,10 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI levelTextBox;
     public TextMeshProUGUI healthTextBox;
 
+    public Dictionary<Vector2, Tile> tiles;
+
     public Unit player;
+    public Unit enemy;
 
     private void Awake()
     {
@@ -39,6 +42,8 @@ public class GameManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(this.gameObject);
+
+        tiles = new Dictionary<Vector2, Tile>();
     }
 
     // Start is called before the first frame update

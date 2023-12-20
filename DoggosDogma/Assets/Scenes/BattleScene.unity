@@ -546,6 +546,10 @@ MonoBehaviour:
   dicePrefab: {fileID: 9061845971751903311, guid: 5bf07464f91c0ae49a2ccf4f37f499e1, type: 3}
   diceCount: 5
   radius: 2.25
+  Move1Text: {fileID: 1712363212}
+  Move2Text: {fileID: 723064146}
+  Move3Text: {fileID: 1682620371}
+  Move4Text: {fileID: 384152855}
 --- !u!68 &169809711
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -1958,7 +1962,7 @@ GameObject:
   - component: {fileID: 675046816}
   - component: {fileID: 675046815}
   m_Layer: 5
-  m_Name: AttackButton
+  m_Name: RollButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2352,6 +2356,7 @@ MonoBehaviour:
   playerHUD: {fileID: 168126023}
   enemyHUD: {fileID: 2125488806}
   dialogueText: {fileID: 394339514}
+  bowl: {fileID: 169809710}
   state: 0
 --- !u!4 &873185531
 Transform:
@@ -3193,6 +3198,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridManager: {fileID: 0}
+  grassUnits: []
+  forestUnits: []
+  levelTextBox: {fileID: 0}
+  healthTextBox: {fileID: 0}
+  player: {fileID: 0}
+  enemy: {fileID: 0}
 --- !u!4 &1698943362
 Transform:
   m_ObjectHideFlags: 0
@@ -3637,7 +3648,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Heal
+  m_text: Flee
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3727,7 +3738,7 @@ GameObject:
   - component: {fileID: 2051619705}
   - component: {fileID: 2051619704}
   m_Layer: 5
-  m_Name: HealButton
+  m_Name: FleeButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3799,7 +3810,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 873185530}
         m_TargetAssemblyTypeName: BattleSystem, Assembly-CSharp
-        m_MethodName: OnHealButton
+        m_MethodName: OnFleeButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
