@@ -455,9 +455,10 @@ GameObject:
   - component: {fileID: 169809709}
   - component: {fileID: 169809708}
   - component: {fileID: 169809710}
+  - component: {fileID: 169809711}
   m_Layer: 0
   m_Name: Bowl
-  m_TagString: Untagged
+  m_TagString: Bowl
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -543,7 +544,59 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dicePrefab: {fileID: 9061845971751903311, guid: 5bf07464f91c0ae49a2ccf4f37f499e1, type: 3}
   diceCount: 2
-  radius: 2.5
+  radius: 2.25
+--- !u!68 &169809711
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 169809707}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0.1
+  m_Points:
+  - {x: -2.56, y: 0}
+  - {x: -2.3334367, y: 1.1699224}
+  - {x: -1.4222639, y: 2.1636777}
+  - {x: 0.022493124, y: 2.5148506}
+  - {x: 1.3823543, y: 2.1869583}
+  - {x: 2.2994523, y: 1.2007844}
+  - {x: 2.56, y: -0.13593787}
+  - {x: 2.288124, y: -1.2574253}
+  - {x: 1.2006211, y: -2.310944}
+  - {x: -0.00016355515, y: -2.605476}
+  - {x: -1.268917, y: -2.2543035}
+  - {x: -2.2544665, y: -1.3367224}
+  - {x: -2.5489984, y: -0.16992235}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &217301501
 GameObject:
   m_ObjectHideFlags: 0
