@@ -17,15 +17,14 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    public GridManager gridManager;
+    public static GridManager gridManager;
 
     public List<GameObject> grassUnits;
     public List<GameObject> forestUnits;
 
-    public TextMeshProUGUI levelTextBox;
-    public TextMeshProUGUI healthTextBox;
-
     public Dictionary<Vector2, Tile> tiles;
+
+    public GameObject tileHolder;
 
     public Unit player;
     public Unit enemy;
@@ -49,8 +48,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        levelTextBox.SetText("Lvl " + player.unitLevel);
-        healthTextBox.SetText(player.currentHP + "/" + player.maxHP);
+        //levelTextBox.SetText("Lvl " + player.unitLevel);
+        //healthTextBox.SetText(player.currentHP + "/" + player.maxHP);
     }
 
     // Update is called once per frame
@@ -63,5 +62,4 @@ public class GameManager : MonoBehaviour
     {
         return(list[Random.Range(0, list.Count)]);
     }
-    
 }

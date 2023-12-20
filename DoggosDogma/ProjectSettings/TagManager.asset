@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Bowl
   - PanelText
+  - GameManager
+  - TileHolder
   layers:
   - Default
   - TransparentFX

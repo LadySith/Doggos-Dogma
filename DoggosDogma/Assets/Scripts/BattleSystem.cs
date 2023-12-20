@@ -35,7 +35,6 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator SetupBattle()
     {
-        //GameObject playerGO = Instantiate(playerPrefab, playerBattleStation);
         playerUnit = GameManager.instance.player;
         playerUnit.transform.position = playerBattleStation.transform.position;
         playerUnit.setVisible(true);
@@ -171,8 +170,13 @@ public class BattleSystem : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
 
-        playerUnit.setVisible(false);
+        ReturnToMap();
+    }
 
+    public void ReturnToMap()
+    {
+        playerUnit.setVisible(false);
+        GameManager.instance.tileHolder.SetActive(true);
         SceneManager.LoadScene("Game");
     }
 }

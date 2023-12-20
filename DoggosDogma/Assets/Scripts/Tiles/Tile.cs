@@ -19,7 +19,7 @@ public abstract class Tile : MonoBehaviour
     private void OnMouseEnter()
     {
         highlight.SetActive(true);
-        panelText.SetText(this.ToString());
+        panelText.SetText(this.ToString() + "\n" + unit.name);
     }
 
     private void OnMouseExit()
@@ -31,6 +31,7 @@ public abstract class Tile : MonoBehaviour
     private void OnMouseDown()
     {
         GameManager.instance.enemy = unit;
+        GameManager.instance.tileHolder.SetActive(false);
         SceneManager.LoadScene("BattleScene");
     }
 }

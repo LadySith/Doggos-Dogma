@@ -11,20 +11,41 @@ public class GridManager : MonoBehaviour
     [SerializeField] private Tile grassTile, forestTile, homeTile;
     [SerializeField] private Transform cam;
     [SerializeField] private TextMeshProUGUI panelTextBox;
+    public TextMeshProUGUI levelTextBox;
+    public TextMeshProUGUI healthTextBox;
 
     Dictionary<Vector2, Tile> tiles;
 
     private void Start()
     {
-        GenerateGrid();
+        levelTextBox.SetText("Lvl "+ GameManager.instance.player.unitLevel);
+        healthTextBox.SetText(GameManager.instance.player.currentHP + "/" + GameManager.instance.player.maxHP);
+        tiles = GameManager.instance.tiles;
+
+        if (tiles.Count == 0)
+        {
+            GenerateGrid();
+        }
+        else
+        {
+            cam.transform.position = new Vector3((float)width / 2 - 0.5f, (float)height / 2 - 0.5f, cam.transform.position.z);
+
+            for (int x = 0; x < width; x++)
+            {
+                for (int y = 0; y < height; y++)
+                {
+                    tiles[new Vector2(x, y)].panelText = panelTextBox;
+                }
+            }
+        }
     }
 
     void GenerateGrid()
     {
-        tiles = GameManager.instance.tiles;
         var homeX = Random.Range(0, width - 1);
         var homeY = Random.Range(0, height - 1);
         var spawnedHome = Instantiate(homeTile,new Vector3(homeX,homeY),Quaternion.identity);
+        spawnedHome.transform.SetParent(GameObject.Find("TileHolder").transform, false);
         spawnedHome.name = $"Tile {homeX} {homeY}";
         spawnedHome.Init(homeX, homeY);
         spawnedHome.panelText = panelTextBox;
@@ -39,6 +60,7 @@ public class GridManager : MonoBehaviour
                 {
                     var randomTile = Random.Range(0, 2) == 1 ? forestTile : grassTile;
                     var spawnedTile = Instantiate(randomTile, new Vector3(x, y), Quaternion.identity);
+                    spawnedTile.transform.SetParent(GameObject.Find("TileHolder").transform, false);
                     spawnedTile.name = $"Tile {x} {y}";
 
                     spawnedTile.Init(x, y);
