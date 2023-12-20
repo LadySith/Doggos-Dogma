@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using TMPro;
 
 public class GridManager : MonoBehaviour
 {
     [SerializeField] private int width, height;
     [SerializeField] private Tile grassTile, forestTile, homeTile;
     [SerializeField] private Transform cam;
+    [SerializeField] private TextMeshProUGUI panelTextBox;
 
     private Dictionary<Vector2, Tile> tiles;
 
@@ -23,7 +25,9 @@ public class GridManager : MonoBehaviour
         var homeY = Random.Range(0, height - 1);
         var spawnedHome = Instantiate(homeTile,new Vector3(homeX,homeY),Quaternion.identity);
         spawnedHome.name = $"Tile {homeX} {homeY}";
-        //Init
+        spawnedHome.Init(homeX, homeY);
+        spawnedHome.panelText = panelTextBox;
+        
         tiles[new Vector2(homeX, homeY)] = spawnedHome;
 
         for (int x = 0; x < width; x++)
@@ -32,11 +36,12 @@ public class GridManager : MonoBehaviour
             {
                 if (!(x == homeX && y == homeY))
                 {
-                    var randomTile = Random.Range(0, 6) == 3 ? forestTile : grassTile;
+                    var randomTile = Random.Range(0, 2) == 1 ? forestTile : grassTile;
                     var spawnedTile = Instantiate(randomTile, new Vector3(x, y), Quaternion.identity);
                     spawnedTile.name = $"Tile {x} {y}";
 
                     spawnedTile.Init(x, y);
+                    spawnedTile.panelText = panelTextBox;
 
                     tiles[new Vector2(x, y)] = spawnedTile;
                 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using TMPro;
 
 public class Bowl : MonoBehaviour
 {
@@ -9,6 +10,11 @@ public class Bowl : MonoBehaviour
     [SerializeField] private Dice dicePrefab;
     [SerializeField] private int diceCount;
     public float radius;
+
+    public TextMeshProUGUI Move1Text;
+    public TextMeshProUGUI Move2Text;
+    public TextMeshProUGUI Move3Text;
+    public TextMeshProUGUI Move4Text;
 
     // Start is called before the first frame update
     void Start()

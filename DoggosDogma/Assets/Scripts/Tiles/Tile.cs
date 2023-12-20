@@ -5,11 +5,10 @@ using TMPro;
 
 public abstract class Tile : MonoBehaviour
 {
-    
     [SerializeField] protected SpriteRenderer rend;
     [SerializeField] private GameObject highlight;
-    [SerializeField] protected Unit tileUnit;
     public TextMeshProUGUI panelText;
+    public Unit unit;
 
     public virtual void Init(int x, int y)
     {
@@ -19,11 +18,12 @@ public abstract class Tile : MonoBehaviour
     private void OnMouseEnter()
     {
         highlight.SetActive(true);
-        Debug.Log(this.ToString());
+        panelText.SetText(this.ToString());
     }
 
     private void OnMouseExit()
     {
         highlight.SetActive(false);
+        panelText.SetText("");
     }
 }

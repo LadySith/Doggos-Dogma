@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 public enum GameState
 {
     GENERATEGRID = 0,
@@ -14,17 +15,37 @@ public enum GameState
 }
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance;
+    public static GameManager instance;
+
+    public GridManager gridManager;
+
+    public List<GameObject> grassUnits;
+    public List<GameObject> forestUnits;
+
+    public TextMeshProUGUI levelTextBox;
+    public TextMeshProUGUI healthTextBox;
+
+    public Unit player;
 
     private void Awake()
     {
-        Instance = this;
+        if (instance != null && instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            instance = this;
+        }
+
+        DontDestroyOnLoad(this.gameObject);
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        levelTextBox.SetText("Lvl " + player.unitLevel);
+        healthTextBox.SetText(player.currentHP + "/" + player.maxHP);
     }
 
     // Update is called once per frame
@@ -33,5 +54,9 @@ public class GameManager : MonoBehaviour
         
     }
 
+    public GameObject getRandomUnit(List<GameObject> list)
+    {
+        return(list[Random.Range(0, list.Count)]);
+    }
     
 }

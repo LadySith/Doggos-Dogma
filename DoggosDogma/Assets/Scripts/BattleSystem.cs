@@ -32,8 +32,9 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator SetupBattle()
     {
-        GameObject playerGO = Instantiate(playerPrefab, playerBattleStation);
-        playerUnit = playerGO.GetComponent<Unit>();
+        //GameObject playerGO = Instantiate(playerPrefab, playerBattleStation);
+        playerUnit = GameManager.instance.player;
+        playerUnit.setVisible(true);
 
         GameObject enemyGO = Instantiate(enemyPrefab, enemyBattleStation);
         enemyUnit = enemyGO.GetComponent<Unit>();
@@ -55,7 +56,7 @@ public class BattleSystem : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
 
-        bool isDead = enemyUnit.TakeDamage(playerUnit.damage);
+        bool isDead = enemyUnit.TakeDamage(playerUnit.currentMove.healthPoints);
 
         enemyHUD.SetHP(enemyUnit);
 
@@ -89,7 +90,7 @@ public class BattleSystem : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
 
-        bool isDead = playerUnit.TakeDamage(enemyUnit.damage);
+        bool isDead = playerUnit.TakeDamage(enemyUnit.currentMove.healthPoints);
 
         playerHUD.SetHP(playerUnit);
 

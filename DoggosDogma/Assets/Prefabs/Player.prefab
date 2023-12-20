@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 8748101134480897006}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -153,6 +153,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitName: Bruno
   unitLevel: 1
-  damage: 2
   maxHP: 10
   currentHP: 8
+  currentMove: {fileID: 0}
+  moveList:
+  - {fileID: 3785544314416811614, guid: 6c3618903e1fc6d448c6e2c587e4817b, type: 3}
+  - {fileID: 3785544314416811614, guid: 6c3618903e1fc6d448c6e2c587e4817b, type: 3}
+  - {fileID: 3044683985434040115, guid: b5e2f78a796bd7046852fa3b28d98a12, type: 3}
+  - {fileID: 0}

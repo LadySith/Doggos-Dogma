@@ -122,6 +122,34 @@ PrefabInstance:
       propertyPath: unitName
       value: Death
       objectReference: {fileID: 0}
+    - target: {fileID: 6525081674904485707, guid: d6b8418a6a6fca54099ba890b014b551, type: 3}
+      propertyPath: moveList.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6525081674904485707, guid: d6b8418a6a6fca54099ba890b014b551, type: 3}
+      propertyPath: moveList.Array.data[0]
+      value: 
+      objectReference: {fileID: 3785544314416811614, guid: 6c3618903e1fc6d448c6e2c587e4817b, type: 3}
+    - target: {fileID: 6525081674904485707, guid: d6b8418a6a6fca54099ba890b014b551, type: 3}
+      propertyPath: moveList.Array.data[1]
+      value: 
+      objectReference: {fileID: 3785544314416811614, guid: 6c3618903e1fc6d448c6e2c587e4817b, type: 3}
+    - target: {fileID: 6525081674904485707, guid: d6b8418a6a6fca54099ba890b014b551, type: 3}
+      propertyPath: moveList.Array.data[2]
+      value: 
+      objectReference: {fileID: 798011300405260793, guid: 3c6c6fcfc7e07fa4ca2423f778757105, type: 3}
+    - target: {fileID: 6525081674904485707, guid: d6b8418a6a6fca54099ba890b014b551, type: 3}
+      propertyPath: moveList.Array.data[3]
+      value: 
+      objectReference: {fileID: 7125302495810799426, guid: 2c212e4ed304ff943ae8d8e6e6dee8af, type: 3}
+    - target: {fileID: 6525081674904485707, guid: d6b8418a6a6fca54099ba890b014b551, type: 3}
+      propertyPath: moveList.Array.data[4]
+      value: 
+      objectReference: {fileID: 798011300405260793, guid: 3c6c6fcfc7e07fa4ca2423f778757105, type: 3}
+    - target: {fileID: 6525081674904485707, guid: d6b8418a6a6fca54099ba890b014b551, type: 3}
+      propertyPath: moveList.Array.data[5]
+      value: 
+      objectReference: {fileID: 7125302495810799426, guid: 2c212e4ed304ff943ae8d8e6e6dee8af, type: 3}
     - target: {fileID: 6882239351572757712, guid: d6b8418a6a6fca54099ba890b014b551, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
