@@ -634,12 +634,16 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 8748101134480897006, guid: bbc76ae144a2e3b4d9405538a55c3938, type: 3}
+      propertyPath: maxHP
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8748101134480897006, guid: bbc76ae144a2e3b4d9405538a55c3938, type: 3}
       propertyPath: unitDice
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8748101134480897006, guid: bbc76ae144a2e3b4d9405538a55c3938, type: 3}
       propertyPath: currentHP
-      value: 10
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1098,6 +1102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a69d5c13ea258348bf1ca85646c1dae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meow: {fileID: 6511556236948612695, guid: 865b5af8a9034e74dbcb6280dfaa9c80, type: 3}
   grassUnits:
   - {fileID: 7704162455206400489, guid: 8e67ce7daf5d8c142a973ec882a0fafd, type: 3}
   forestUnits:
@@ -1117,6 +1122,8 @@ MonoBehaviour:
   emptyMove: {fileID: 288321849}
   player: {fileID: 2146713278}
   enemy: {fileID: 0}
+  BrunoPosition: {x: 0, y: 0}
+  OldBrunoPosition: {x: 0, y: 0}
 --- !u!4 &1946973222
 Transform:
   m_ObjectHideFlags: 0

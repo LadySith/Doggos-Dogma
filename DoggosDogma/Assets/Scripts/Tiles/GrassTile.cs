@@ -20,6 +20,7 @@ public class GrassTile : Tile
 
     public override void Init(int x, int y)
     {
+        base.Init(x, y);
         var isOffset = (x + y) % 2 == 1;
         rend.color = isOffset ? offsetColor : baseColor;
     }

@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
 
     public static GridManager gridManager;
 
+    public GameObject meow;
     public List<GameObject> grassUnits;
     public List<GameObject> forestUnits;
 
@@ -32,6 +33,9 @@ public class GameManager : MonoBehaviour
 
     public Unit player;
     public Unit enemy;
+
+    public Vector2 BrunoPosition;
+    public Vector2 OldBrunoPosition;
 
     private void Awake()
     {
@@ -78,5 +82,14 @@ public class GameManager : MonoBehaviour
         }
 
         return emptyMove;
+    }
+
+    public void ChangeBrunoIconOnClick(Vector2 newBrunoLocation)
+    {
+        tiles[OldBrunoPosition].brunoIcon.SetActive(false);
+        tiles[BrunoPosition].brunoIcon.SetActive(false);
+        OldBrunoPosition = BrunoPosition;
+        BrunoPosition = newBrunoLocation;
+        tiles[BrunoPosition].brunoIcon.SetActive(true);
     }
 }

@@ -17,6 +17,8 @@ public class BattleSystem : MonoBehaviour
     public GameObject LoversPrefab;
     public GameObject FoolPrefab;
     public GameObject SkelePrefab;
+    public GameObject MeowPrefab;
+    public GameObject MegaPrefab;
 
     public Transform playerBattleStation;
     public Transform enemyBattleStation;
@@ -104,6 +106,12 @@ public class BattleSystem : MonoBehaviour
         } else if (enemyUnit.name == "Skelesoldier")
         {
             enemyUnit = Instantiate(SkelePrefab, enemyBattleStation).GetComponent<Unit>();
+        } else if (enemyUnit.name == "Meowstopheles")
+        {
+            enemyUnit = Instantiate(MeowPrefab, enemyBattleStation).GetComponent<Unit>();
+        } else if (enemyUnit.name.Contains("Mega"))
+        {
+            enemyUnit = Instantiate(MegaPrefab, enemyBattleStation).GetComponent<Unit>();
         }
 
         dialogueText.SetText("You encountered " + enemyUnit.unitName + "!");

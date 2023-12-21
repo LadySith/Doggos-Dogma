@@ -8,6 +8,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 404155368450731155, guid: fb5c21671e954c046ab7c2f306f5292f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6646701576521179860, guid: fb5c21671e954c046ab7c2f306f5292f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d8dc6e376ff53aa4c9580d590c79176f, type: 3}
+    - target: {fileID: 6646701576521179860, guid: fb5c21671e954c046ab7c2f306f5292f, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6673071358216921591, guid: fb5c21671e954c046ab7c2f306f5292f, type: 3}
       propertyPath: m_Color.b
       value: 0.1792453
@@ -96,8 +108,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rend: {fileID: 1873022738155806574}
   highlight: {fileID: 5213848454417075169}
+  xPos: 0
+  yPos: 0
+  brunoIcon: {fileID: 5354761335439236472}
+  panelText: {fileID: 0}
+  unit: {fileID: 6534774340043157944, guid: 865b5af8a9034e74dbcb6280dfaa9c80, type: 3}
 --- !u!1 &5213848454417075169 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 954372524888831352, guid: fb5c21671e954c046ab7c2f306f5292f, type: 3}
+  m_PrefabInstance: {fileID: 5000635279524757145}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5354761335439236472 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1092752219394139105, guid: fb5c21671e954c046ab7c2f306f5292f, type: 3}
   m_PrefabInstance: {fileID: 5000635279524757145}
   m_PrefabAsset: {fileID: 0}

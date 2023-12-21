@@ -96,8 +96,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rend: {fileID: 688845763546880866}
   highlight: {fileID: 6352989561500520429}
+  brunoIcon: {fileID: 6502910629054323060}
+  panelText: {fileID: 0}
+  unit: {fileID: 0}
 --- !u!1 &6352989561500520429 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 954372524888831352, guid: fb5c21671e954c046ab7c2f306f5292f, type: 3}
+  m_PrefabInstance: {fileID: 6130743357391305365}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6502910629054323060 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1092752219394139105, guid: fb5c21671e954c046ab7c2f306f5292f, type: 3}
   m_PrefabInstance: {fileID: 6130743357391305365}
   m_PrefabAsset: {fileID: 0}

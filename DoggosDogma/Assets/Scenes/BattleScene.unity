@@ -551,7 +551,6 @@ MonoBehaviour:
   Move2Text: {fileID: 723064146}
   Move3Text: {fileID: 1682620371}
   Move4Text: {fileID: 384152855}
-  moveOrder: 
   finishedRolling: 0
 --- !u!68 &169809711
 EdgeCollider2D:
@@ -2358,6 +2357,8 @@ MonoBehaviour:
   LoversPrefab: {fileID: 7139864440552975199, guid: fbf82a269101fed498583cc63d4eedd0, type: 3}
   FoolPrefab: {fileID: 4363808017598854569, guid: 3e60c47ad6e5c2c4f969257a2792a57f, type: 3}
   SkelePrefab: {fileID: 7704162455206400489, guid: 8e67ce7daf5d8c142a973ec882a0fafd, type: 3}
+  MeowPrefab: {fileID: 6511556236948612695, guid: 865b5af8a9034e74dbcb6280dfaa9c80, type: 3}
+  MegaPrefab: {fileID: 0}
   playerBattleStation: {fileID: 484966236}
   enemyBattleStation: {fileID: 1340672126}
   playerHUD: {fileID: 168126023}
@@ -3204,6 +3205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a69d5c13ea258348bf1ca85646c1dae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meow: {fileID: 0}
   grassUnits: []
   forestUnits: []
   allMoves: []
@@ -3211,6 +3213,8 @@ MonoBehaviour:
   emptyMove: {fileID: 0}
   player: {fileID: 0}
   enemy: {fileID: 0}
+  BrunoPosition: {x: 0, y: 0}
+  OldBrunoPosition: {x: 0, y: 0}
 --- !u!4 &1698943362
 Transform:
   m_ObjectHideFlags: 0

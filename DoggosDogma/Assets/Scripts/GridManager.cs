@@ -8,13 +8,15 @@ using UnityEngine.SceneManagement;
 public class GridManager : MonoBehaviour
 {
     [SerializeField] private int width, height;
-    [SerializeField] private Tile grassTile, forestTile, homeTile;
+    public Tile grassTile, forestTile, homeTile;
     [SerializeField] private Transform cam;
     [SerializeField] private TextMeshProUGUI panelTextBox;
     public TextMeshProUGUI levelTextBox;
     public TextMeshProUGUI healthTextBox;
 
     Dictionary<Vector2, Tile> tiles;
+
+    
 
     private void Start()
     {
@@ -49,8 +51,15 @@ public class GridManager : MonoBehaviour
         spawnedHome.name = $"Tile {homeX} {homeY}";
         spawnedHome.Init(homeX, homeY);
         spawnedHome.panelText = panelTextBox;
+
         
+
         tiles[new Vector2(homeX, homeY)] = spawnedHome;
+
+        tiles[new Vector2(homeX, homeY)].brunoIcon.SetActive(true);
+
+        GameManager.instance.BrunoPosition = new Vector2(homeX, homeY);
+        GameManager.instance.OldBrunoPosition = new Vector2(homeX, homeY);
 
         for (int x = 0; x < width; x++)
         {
@@ -83,4 +92,7 @@ public class GridManager : MonoBehaviour
 
         return null;
     }
+
+    
+    
 }

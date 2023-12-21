@@ -77,13 +77,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c682436e617f5674794e043cc22c0f45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseColor: {r: 0.33421764, g: 0.6792453, b: 0.26593092, a: 1}
-  offsetColor: {r: 0.30135924, g: 0.6226415, b: 0.23789605, a: 1}
   rend: {fileID: 1366639865509773746}
   highlight: {fileID: 4851037045707461949}
+  brunoIcon: {fileID: 4703720529243308964}
+  panelText: {fileID: 0}
+  unit: {fileID: 0}
+  baseColor: {r: 0.33421764, g: 0.6792453, b: 0.26593092, a: 1}
+  offsetColor: {r: 0.30135924, g: 0.6226415, b: 0.23789605, a: 1}
 --- !u!212 &1366639865509773746 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 6673071358216921591, guid: fb5c21671e954c046ab7c2f306f5292f, type: 3}
+  m_PrefabInstance: {fileID: 5651107948416688197}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4703720529243308964 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1092752219394139105, guid: fb5c21671e954c046ab7c2f306f5292f, type: 3}
   m_PrefabInstance: {fileID: 5651107948416688197}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &4851037045707461949 stripped
