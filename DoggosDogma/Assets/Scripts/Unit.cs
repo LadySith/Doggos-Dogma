@@ -7,7 +7,7 @@ public class Unit : MonoBehaviour
     public string unitName;
     public int unitLevel;
 
-    //public int damage;
+    public int unitDice;
 
     public int maxHP;
     public int currentHP;
@@ -24,6 +24,8 @@ public class Unit : MonoBehaviour
         move2 = moveList[1];
         move3 = moveList[2];
         move4 = moveList[3];
+
+        currentHP = maxHP;
     }
 
     public bool updateHealth(int amount)

@@ -15,6 +15,8 @@ public class BattleSystem : MonoBehaviour
 
     public GameObject DeathPrefab;
     public GameObject LoversPrefab;
+    public GameObject FoolPrefab;
+    public GameObject SkelePrefab;
 
     public Transform playerBattleStation;
     public Transform enemyBattleStation;
@@ -29,12 +31,57 @@ public class BattleSystem : MonoBehaviour
 
     public Bowl bowl;
 
+    
+
     public BattleState state;
     // Start is called before the first frame update
     void Start()
     {
         state = BattleState.START;
         StartCoroutine(SetupBattle());
+    }
+
+    private void FixedUpdate()
+    {
+        foreach (Dice x in bowl.dicePool)
+        {
+            if (!x.isStopped())
+            {
+                return;
+            }
+        }
+
+        if (!bowl.finishedRolling)
+        {
+            StartCoroutine(startMoves());
+            bowl.finishedRolling = true;
+        }
+    }
+
+    public void NextTurn()
+    {
+        if (state == BattleState.PLAYERTURN)
+        {
+            state = BattleState.ENEMYTURN;
+            EnemyTurn();
+        } else if (state == BattleState.ENEMYTURN)
+        {
+            state = BattleState.PLAYERTURN;
+            PlayerTurn();
+        }
+    }
+
+    IEnumerator startMoves()
+    {
+        foreach (Dice x in bowl.dicePool)
+        {
+            x.hasStopped = true;
+            bowl.moveOrder.Add(x.getDicePosition());
+            yield return doMove(x.getDicePosition());
+            Debug.Log(x.dicePosition, x);
+        }
+
+        NextTurn();
     }
 
     IEnumerator SetupBattle()
@@ -48,13 +95,17 @@ public class BattleSystem : MonoBehaviour
 
         if (enemyUnit.name == "Death")
         {
-            enemyGO = Instantiate(DeathPrefab, enemyBattleStation);
-        } else if (enemyUnit.name == "Lovers")
+            enemyUnit = Instantiate(DeathPrefab, enemyBattleStation).GetComponent<Unit>();
+        } else if (enemyUnit.name == "The Lovers")
         {
-            enemyGO = Instantiate(LoversPrefab, enemyBattleStation);
+            enemyUnit = Instantiate(LoversPrefab, enemyBattleStation).GetComponent<Unit>();
+        } else if (enemyUnit.name == "The Fool")
+        {
+            enemyUnit = Instantiate(FoolPrefab, enemyBattleStation).GetComponent<Unit>();
+        } else if (enemyUnit.name == "Skelesoldier")
+        {
+            enemyUnit = Instantiate(SkelePrefab, enemyBattleStation).GetComponent<Unit>();
         }
-        //GameObject enemyGO = Instantiate(enemyPrefab, enemyBattleStation);
-        //enemyUnit = enemyGO.GetComponent<Unit>();
 
         dialogueText.SetText("You encountered " + enemyUnit.unitName + "!");
 
@@ -125,32 +176,16 @@ public class BattleSystem : MonoBehaviour
         }
     }
 
-    IEnumerator EnemyTurn()
+    public void EnemyTurn()
     {
         bowl.setUpBoard(enemyUnit);
         dialogueText.text = enemyUnit.unitName + " attacks!";
-
-        yield return new WaitForSeconds(1f);
-
-        bool isDead = playerUnit.updateHealth(enemyUnit.move1.healthPoints);
-
-        playerHUD.SetHP(playerUnit);
-
-        yield return new WaitForSeconds(1f);
-
-        if (isDead)
-        {
-            state = BattleState.LOST;
-            EndBattle();
-        } else
-        {
-            state = BattleState.PLAYERTURN;
-            PlayerTurn();
-        }
+        bowl.RollAll();
     }
 
     void PlayerTurn()
     {
+        bowl.setUpBoard(playerUnit);
         dialogueText.SetText("Choose an action:");
     }
 
@@ -168,7 +203,7 @@ public class BattleSystem : MonoBehaviour
     {
         enemyUnit.updateHealth(m.healthPoints);
 
-        playerHUD.SetHP(enemyUnit);
+        enemyHUD.SetHP(enemyUnit);
         dialogueText.SetText(enemyUnit.unitName + " healed.");
 
         yield return new WaitForSeconds(2f);
@@ -195,15 +230,7 @@ public class BattleSystem : MonoBehaviour
         SceneManager.LoadScene("Game");
     }
 
-    public void doAllMoves()
-    {
-        foreach (int x in bowl.moveOrder)
-        {
-            doMove(x);
-        }
-    }
-
-    public void doMove(int x)
+    public IEnumerator doMove(int x)
     {
         Move thisMove;
         if (x == 1)
@@ -220,17 +247,17 @@ public class BattleSystem : MonoBehaviour
             thisMove = GameManager.instance.findMove(bowl.Move4Text.text);
         } else
         {
-            thisMove = null;
+            thisMove = GameManager.instance.emptyMove;
         }
 
         if (state == BattleState.PLAYERTURN)
         {
             if (thisMove.moveName == "Heal")
             {
-                StartCoroutine(PlayerHeal(thisMove));
+                yield return (PlayerHeal(thisMove));
             } else
             {
-                StartCoroutine(PlayerAttack(thisMove));
+                yield return (PlayerAttack(thisMove));
             }
         }
 
@@ -238,11 +265,11 @@ public class BattleSystem : MonoBehaviour
         {
             if (thisMove.moveName == "Heal")
             {
-                StartCoroutine(EnemyHeal(thisMove));
+                yield return (EnemyHeal(thisMove));
             }
             else
             {
-                StartCoroutine(EnemyAttack(thisMove));
+                yield return (EnemyAttack(thisMove));
             }
         }
     }
@@ -250,11 +277,5 @@ public class BattleSystem : MonoBehaviour
     public void OnRollButton()
     {
         bowl.RollAll();
-        foreach (int x in bowl.moveOrder)
-        {
-            Debug.Log(x);
-        }
-        
-        //doAllMoves();
     }
 }

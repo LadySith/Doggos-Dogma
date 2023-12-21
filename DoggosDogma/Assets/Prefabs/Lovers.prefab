@@ -127,8 +127,12 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6525081674904485707, guid: d6b8418a6a6fca54099ba890b014b551, type: 3}
+      propertyPath: unitDice
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6525081674904485707, guid: d6b8418a6a6fca54099ba890b014b551, type: 3}
       propertyPath: unitName
-      value: Lovers
+      value: The Lovers
       objectReference: {fileID: 0}
     - target: {fileID: 6525081674904485707, guid: d6b8418a6a6fca54099ba890b014b551, type: 3}
       propertyPath: currentHP

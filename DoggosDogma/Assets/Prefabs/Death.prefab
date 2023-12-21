@@ -119,8 +119,16 @@ PrefabInstance:
       value: Death
       objectReference: {fileID: 0}
     - target: {fileID: 6525081674904485707, guid: d6b8418a6a6fca54099ba890b014b551, type: 3}
+      propertyPath: unitDice
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6525081674904485707, guid: d6b8418a6a6fca54099ba890b014b551, type: 3}
       propertyPath: unitName
       value: Death
+      objectReference: {fileID: 0}
+    - target: {fileID: 6525081674904485707, guid: d6b8418a6a6fca54099ba890b014b551, type: 3}
+      propertyPath: currentHP
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6525081674904485707, guid: d6b8418a6a6fca54099ba890b014b551, type: 3}
       propertyPath: moveList.Array.size
@@ -129,11 +137,11 @@ PrefabInstance:
     - target: {fileID: 6525081674904485707, guid: d6b8418a6a6fca54099ba890b014b551, type: 3}
       propertyPath: moveList.Array.data[0]
       value: 
-      objectReference: {fileID: 3785544314416811614, guid: 6c3618903e1fc6d448c6e2c587e4817b, type: 3}
+      objectReference: {fileID: 3044683985434040115, guid: b5e2f78a796bd7046852fa3b28d98a12, type: 3}
     - target: {fileID: 6525081674904485707, guid: d6b8418a6a6fca54099ba890b014b551, type: 3}
       propertyPath: moveList.Array.data[1]
       value: 
-      objectReference: {fileID: 3785544314416811614, guid: 6c3618903e1fc6d448c6e2c587e4817b, type: 3}
+      objectReference: {fileID: 3044683985434040115, guid: b5e2f78a796bd7046852fa3b28d98a12, type: 3}
     - target: {fileID: 6525081674904485707, guid: d6b8418a6a6fca54099ba890b014b551, type: 3}
       propertyPath: moveList.Array.data[2]
       value: 

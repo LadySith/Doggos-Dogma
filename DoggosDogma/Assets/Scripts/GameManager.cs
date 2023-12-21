@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
 
     public GameObject tileHolder;
 
+    public Move emptyMove;
+
     public Unit player;
     public Unit enemy;
 
@@ -75,6 +77,6 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        return null;
+        return emptyMove;
     }
 }

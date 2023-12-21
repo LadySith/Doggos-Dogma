@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6726376718079011669}
   - component: {fileID: 3785544314416811614}
   m_Layer: 0
-  m_Name: Scratch
+  m_Name: Bark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

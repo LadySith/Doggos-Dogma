@@ -543,6 +543,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ef89610e98f3c2469c606a48ced413a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dicePool: []
   dicePrefab: {fileID: 9061845971751903311, guid: 5bf07464f91c0ae49a2ccf4f37f499e1, type: 3}
   diceCount: 2
   radius: 2.25
@@ -551,6 +552,7 @@ MonoBehaviour:
   Move3Text: {fileID: 1682620371}
   Move4Text: {fileID: 384152855}
   moveOrder: 
+  finishedRolling: 0
 --- !u!68 &169809711
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -2354,6 +2356,8 @@ MonoBehaviour:
   enemyGO: {fileID: 0}
   DeathPrefab: {fileID: 5180164814114095081, guid: 7644619d3a111df4d8bdcda7e18c2da7, type: 3}
   LoversPrefab: {fileID: 7139864440552975199, guid: fbf82a269101fed498583cc63d4eedd0, type: 3}
+  FoolPrefab: {fileID: 4363808017598854569, guid: 3e60c47ad6e5c2c4f969257a2792a57f, type: 3}
+  SkelePrefab: {fileID: 7704162455206400489, guid: 8e67ce7daf5d8c142a973ec882a0fafd, type: 3}
   playerBattleStation: {fileID: 484966236}
   enemyBattleStation: {fileID: 1340672126}
   playerHUD: {fileID: 168126023}
@@ -3204,6 +3208,7 @@ MonoBehaviour:
   forestUnits: []
   allMoves: []
   tileHolder: {fileID: 0}
+  emptyMove: {fileID: 0}
   player: {fileID: 0}
   enemy: {fileID: 0}
 --- !u!4 &1698943362

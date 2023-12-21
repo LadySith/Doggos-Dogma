@@ -9,7 +9,7 @@ public class GrassTile : Tile
     // Start is called before the first frame update
     void Start()
     {
-        
+        unit = (GameManager.instance.getRandomUnit(GameManager.instance.grassUnits)).GetComponent<Unit>();
     }
 
     // Update is called once per frame

@@ -6,9 +6,9 @@ using TMPro;
 
 public class Bowl : MonoBehaviour
 {
-    private List<Dice> dicePool = new();
+    public List<Dice> dicePool = new();
     [SerializeField] private Dice dicePrefab;
-    [SerializeField] private int diceCount;
+    public int diceCount;
     public float radius;
 
     public TextMeshProUGUI Move1Text;
@@ -18,33 +18,35 @@ public class Bowl : MonoBehaviour
 
     public List<int> moveOrder = new();
 
+    public bool finishedRolling = false;
+
     // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    private void LateUpdate()
-    {
-        foreach (Dice x in dicePool)
-        {
-            if (!x.isStopped())
-            {
-                return;
-            }
-        }
+    //private void LateUpdate()
+    //{
+    //    foreach (Dice x in dicePool)
+    //    {
+    //        if (!x.isStopped())
+    //        {
+    //            return;
+    //        }
+    //    }
 
-        foreach (Dice x in dicePool)
-        {
-            if (!x.hasStopped)
-            {
-                x.hasStopped = true;
-                moveOrder.Add(x.getDicePosition());
-                Debug.Log(x.dicePosition, x);
-            }
+    //    foreach (Dice x in dicePool)
+    //    {
+    //        if (!x.hasStopped)
+    //        {
+    //            x.hasStopped = true;
+    //            moveOrder.Add(x.getDicePosition());
+    //            Debug.Log(x.dicePosition, x);
+    //        }
             
-        }
-    }
+    //    }
+    //}
 
     public void RollAll()
     {
@@ -56,8 +58,9 @@ public class Bowl : MonoBehaviour
             }
 
             dicePool.Clear();
-            moveOrder.Clear();
         }
+
+        finishedRolling = false;
 
         for (int i = 0; i < diceCount; i++)
         {
@@ -71,6 +74,17 @@ public class Bowl : MonoBehaviour
 
     public void setUpBoard(Unit unit)
     {
+        if (dicePool != null)
+        {
+            foreach (Dice x in dicePool)
+            {
+                x.DestroyDice();
+            }
+
+            dicePool.Clear();
+        }
+
+        diceCount = unit.unitDice;
         Move1Text.SetText((unit.move1 != null) ? unit.move1.name : "");
         Move2Text.SetText((unit.move2 != null) ? unit.move2.name : "");
         Move3Text.SetText((unit.move3 != null) ? unit.move3.name : "");

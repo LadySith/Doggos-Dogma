@@ -123,6 +123,53 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &288321848
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 288321850}
+  - component: {fileID: 288321849}
+  m_Layer: 0
+  m_Name: EmptyMove
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &288321849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 288321848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d51096d5cf418d48aacc930dc6056d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: nothing
+  healthPoints: 0
+  description: does nothing
+--- !u!4 &288321850
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 288321848}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.1640015, y: 0.5312212, z: 4.553431}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &338175243
 GameObject:
   m_ObjectHideFlags: 0
@@ -586,6 +633,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8748101134480897006, guid: bbc76ae144a2e3b4d9405538a55c3938, type: 3}
+      propertyPath: unitDice
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8748101134480897006, guid: bbc76ae144a2e3b4d9405538a55c3938, type: 3}
+      propertyPath: currentHP
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1043,10 +1098,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a69d5c13ea258348bf1ca85646c1dae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grassUnits: []
+  grassUnits:
+  - {fileID: 7704162455206400489, guid: 8e67ce7daf5d8c142a973ec882a0fafd, type: 3}
   forestUnits:
   - {fileID: 5180164814114095081, guid: 7644619d3a111df4d8bdcda7e18c2da7, type: 3}
   - {fileID: 7139864440552975199, guid: fbf82a269101fed498583cc63d4eedd0, type: 3}
+  - {fileID: 4363808017598854569, guid: 3e60c47ad6e5c2c4f969257a2792a57f, type: 3}
   allMoves:
   - {fileID: 3044683985434040115, guid: b5e2f78a796bd7046852fa3b28d98a12, type: 3}
   - {fileID: 7588055831678534123, guid: e1a937a27b489e34eac2437ce7178aef, type: 3}
@@ -1055,7 +1112,9 @@ MonoBehaviour:
   - {fileID: 3785544314416811614, guid: 6c3618903e1fc6d448c6e2c587e4817b, type: 3}
   - {fileID: 7125302495810799426, guid: 2c212e4ed304ff943ae8d8e6e6dee8af, type: 3}
   - {fileID: 3332022017420946872, guid: fc06f3e18cdf52f4482f837dc7540a18, type: 3}
+  - {fileID: 7358001044374377353, guid: fdd7d5f0471807046909338baa73dd56, type: 3}
   tileHolder: {fileID: 1883596844}
+  emptyMove: {fileID: 288321849}
   player: {fileID: 2146713278}
   enemy: {fileID: 0}
 --- !u!4 &1946973222
@@ -1187,3 +1246,4 @@ SceneRoots:
   - {fileID: 1222793116}
   - {fileID: 1946973222}
   - {fileID: 1007540937}
+  - {fileID: 288321850}
