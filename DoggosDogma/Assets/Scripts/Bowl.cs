@@ -16,7 +16,7 @@ public class Bowl : MonoBehaviour
     public TextMeshProUGUI Move3Text;
     public TextMeshProUGUI Move4Text;
 
-    public List<int> moveOrder = new();
+    //public List<int> moveOrder = new();
 
     public bool finishedRolling = false;
 

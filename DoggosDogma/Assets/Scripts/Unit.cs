@@ -16,21 +16,24 @@ public class Unit : MonoBehaviour
     public Move move3;
     public Move move4;
 
+    Move emptyMove;
+
     public List<Move> moveList;
 
     private void Start()
     {
-        move1 = moveList[0];
-        move2 = moveList[1];
-        move3 = moveList[2];
-        move4 = moveList[3];
+        emptyMove = GameManager.instance.emptyMove;
+        move1 = (moveList.Count > 0) ? moveList[0] : emptyMove;
+        move2 = (moveList.Count > 1) ? moveList[1] : emptyMove;
+        move3 = (moveList.Count > 2) ? moveList[2] : emptyMove;
+        move4 = (moveList.Count > 3) ? moveList[3] : emptyMove;
 
         currentHP = maxHP;
     }
 
     public bool updateHealth(int amount)
     {
-        if (amount >= 0)
+        if (amount <= 0)
         {
             currentHP += amount;
         } else

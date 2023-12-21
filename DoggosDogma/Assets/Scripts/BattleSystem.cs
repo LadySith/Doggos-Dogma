@@ -76,7 +76,6 @@ public class BattleSystem : MonoBehaviour
         foreach (Dice x in bowl.dicePool)
         {
             x.hasStopped = true;
-            bowl.moveOrder.Add(x.getDicePosition());
             yield return doMove(x.getDicePosition());
             Debug.Log(x.dicePosition, x);
         }
@@ -96,10 +95,10 @@ public class BattleSystem : MonoBehaviour
         if (enemyUnit.name == "Death")
         {
             enemyUnit = Instantiate(DeathPrefab, enemyBattleStation).GetComponent<Unit>();
-        } else if (enemyUnit.name == "The Lovers")
+        } else if (enemyUnit.name.Contains("Lovers"))
         {
             enemyUnit = Instantiate(LoversPrefab, enemyBattleStation).GetComponent<Unit>();
-        } else if (enemyUnit.name == "The Fool")
+        } else if (enemyUnit.name.Contains("Fool"))
         {
             enemyUnit = Instantiate(FoolPrefab, enemyBattleStation).GetComponent<Unit>();
         } else if (enemyUnit.name == "Skelesoldier")

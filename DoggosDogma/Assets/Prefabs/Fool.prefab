@@ -34,7 +34,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6525081674904485707, guid: d6b8418a6a6fca54099ba890b014b551, type: 3}
       propertyPath: moveList.Array.size
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6525081674904485707, guid: d6b8418a6a6fca54099ba890b014b551, type: 3}
       propertyPath: moveList.Array.data[0]
@@ -42,6 +42,14 @@ PrefabInstance:
       objectReference: {fileID: 7588055831678534123, guid: e1a937a27b489e34eac2437ce7178aef, type: 3}
     - target: {fileID: 6525081674904485707, guid: d6b8418a6a6fca54099ba890b014b551, type: 3}
       propertyPath: moveList.Array.data[1]
+      value: 
+      objectReference: {fileID: 798011300405260793, guid: 3c6c6fcfc7e07fa4ca2423f778757105, type: 3}
+    - target: {fileID: 6525081674904485707, guid: d6b8418a6a6fca54099ba890b014b551, type: 3}
+      propertyPath: moveList.Array.data[2]
+      value: 
+      objectReference: {fileID: 798011300405260793, guid: 3c6c6fcfc7e07fa4ca2423f778757105, type: 3}
+    - target: {fileID: 6525081674904485707, guid: d6b8418a6a6fca54099ba890b014b551, type: 3}
+      propertyPath: moveList.Array.data[3]
       value: 
       objectReference: {fileID: 798011300405260793, guid: 3c6c6fcfc7e07fa4ca2423f778757105, type: 3}
     - target: {fileID: 6882239351572757712, guid: d6b8418a6a6fca54099ba890b014b551, type: 3}
