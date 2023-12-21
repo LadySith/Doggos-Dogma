@@ -544,12 +544,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dicePrefab: {fileID: 9061845971751903311, guid: 5bf07464f91c0ae49a2ccf4f37f499e1, type: 3}
-  diceCount: 5
+  diceCount: 2
   radius: 2.25
   Move1Text: {fileID: 1712363212}
   Move2Text: {fileID: 723064146}
   Move3Text: {fileID: 1682620371}
   Move4Text: {fileID: 384152855}
+  moveOrder: 
 --- !u!68 &169809711
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -2032,9 +2033,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 169809710}
-        m_TargetAssemblyTypeName: Bowl, Assembly-CSharp
-        m_MethodName: RollAll
+      - m_Target: {fileID: 873185530}
+        m_TargetAssemblyTypeName: BattleSystem, Assembly-CSharp
+        m_MethodName: OnRollButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

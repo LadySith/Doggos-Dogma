@@ -24,6 +24,28 @@ public class Bowl : MonoBehaviour
         
     }
 
+    private void LateUpdate()
+    {
+        foreach (Dice x in dicePool)
+        {
+            if (!x.isStopped())
+            {
+                return;
+            }
+        }
+
+        foreach (Dice x in dicePool)
+        {
+            if (!x.hasStopped)
+            {
+                x.hasStopped = true;
+                moveOrder.Add(x.getDicePosition());
+                Debug.Log(x.dicePosition, x);
+            }
+            
+        }
+    }
+
     public void RollAll()
     {
         if (dicePool != null)
@@ -43,8 +65,7 @@ public class Bowl : MonoBehaviour
             Dice newDice = Instantiate(dicePrefab, new Vector3(randomPoint.x, randomPoint.y), Quaternion.identity);
             dicePool.Add(newDice);
             //newDice.Roll();
-
-            moveOrder.Add(newDice.Roll());
+            StartCoroutine(newDice.RollTheDice(Random.Range(1, 6)));
         }
     }
 

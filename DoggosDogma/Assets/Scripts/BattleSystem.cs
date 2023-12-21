@@ -69,7 +69,7 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator PlayerAttack(Move m)
     {
-        dialogueText.text = playerUnit.unitName + " attacks!";
+        dialogueText.text = playerUnit.unitName + " used " + m.moveName + "!";
 
         yield return new WaitForSeconds(1f);
 
@@ -85,8 +85,32 @@ public class BattleSystem : MonoBehaviour
             EndBattle();
         } else
         {
-            state = BattleState.ENEMYTURN;
-            StartCoroutine(EnemyTurn());
+            //state = BattleState.ENEMYTURN;
+            //StartCoroutine(EnemyTurn());
+        }
+    }
+
+    IEnumerator EnemyAttack(Move m)
+    {
+        dialogueText.text = enemyUnit.unitName + " used " + m.moveName + "!";
+
+        yield return new WaitForSeconds(1f);
+
+        bool isDead = playerUnit.updateHealth(m.healthPoints);
+
+        playerHUD.SetHP(playerUnit);
+
+        yield return new WaitForSeconds(2f);
+
+        if (isDead)
+        {
+            state = BattleState.LOST;
+            EndBattle();
+        }
+        else
+        {
+            //state = BattleState.PLAYERTURN;
+            //StartCoroutine(PlayerTurn());
         }
     }
 
@@ -130,22 +154,6 @@ public class BattleSystem : MonoBehaviour
         dialogueText.SetText("Choose an action:");
     }
 
-    public void OnAttackButton()
-    {
-        if (state != BattleState.PLAYERTURN)
-            return;
-
-        StartCoroutine(PlayerAttack());
-    }
-
-    public void OnHealButton()
-    {
-        if (state != BattleState.PLAYERTURN)
-            return;
-
-        //StartCoroutine(PlayerHeal());
-    }
-
     IEnumerator PlayerHeal(Move m)
     {
         playerUnit.updateHealth(m.healthPoints);
@@ -154,22 +162,16 @@ public class BattleSystem : MonoBehaviour
         dialogueText.SetText("You've been healed.");
 
         yield return new WaitForSeconds(2f);
-
-        state = BattleState.ENEMYTURN;
-        StartCoroutine(EnemyTurn());
     }
 
-    IEnumerator EnemyHeal()
+    IEnumerator EnemyHeal(Move m)
     {
-        enemyUnit.Heal(5);
+        enemyUnit.updateHealth(m.healthPoints);
 
         playerHUD.SetHP(enemyUnit);
         dialogueText.SetText(enemyUnit.unitName + " healed.");
 
         yield return new WaitForSeconds(2f);
-
-        state = BattleState.PLAYERTURN;
-        StartCoroutine(EnemyTurn());
     }
 
     public void OnFleeButton()
@@ -191,6 +193,14 @@ public class BattleSystem : MonoBehaviour
         playerUnit.setVisible(false);
         GameManager.instance.tileHolder.SetActive(true);
         SceneManager.LoadScene("Game");
+    }
+
+    public void doAllMoves()
+    {
+        foreach (int x in bowl.moveOrder)
+        {
+            doMove(x);
+        }
     }
 
     public void doMove(int x)
@@ -218,11 +228,33 @@ public class BattleSystem : MonoBehaviour
             if (thisMove.moveName == "Heal")
             {
                 StartCoroutine(PlayerHeal(thisMove));
-                return;
             } else
             {
                 StartCoroutine(PlayerAttack(thisMove));
             }
         }
+
+        if (state == BattleState.ENEMYTURN)
+        {
+            if (thisMove.moveName == "Heal")
+            {
+                StartCoroutine(EnemyHeal(thisMove));
+            }
+            else
+            {
+                StartCoroutine(EnemyAttack(thisMove));
+            }
+        }
+    }
+
+    public void OnRollButton()
+    {
+        bowl.RollAll();
+        foreach (int x in bowl.moveOrder)
+        {
+            Debug.Log(x);
+        }
+        
+        //doAllMoves();
     }
 }

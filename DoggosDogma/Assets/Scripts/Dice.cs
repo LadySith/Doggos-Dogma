@@ -14,6 +14,8 @@ public class Dice : MonoBehaviour
     private float maxVelocity = 10f;
     private float multiplier = 100.0f;
     public int dicePosition;
+    public bool hasStopped;
+    public float timeCreated;
 
     private void Start()
     {
@@ -23,6 +25,7 @@ public class Dice : MonoBehaviour
         //dist = (bowl.transform.position - this.transform.position).magnitude;
         velocity = new Vector3(Random.Range(-1.0f * maxVelocity, maxVelocity), Random.Range(-1.0f * maxVelocity, maxVelocity), 0);
         rbDice.AddForce(velocity*multiplier);
+        timeCreated = Time.time;
     }
 
     private void Update()
@@ -32,15 +35,15 @@ public class Dice : MonoBehaviour
 
     public int Roll()
     {
-        StartCoroutine(RollTheDice());
+        int finalRoll = Random.Range(1, 6);
+        StartCoroutine(RollTheDice(finalRoll));
+        
         return dicePosition;
     }
 
-    private IEnumerator RollTheDice()
+    public IEnumerator RollTheDice(int r)
     {
         int randomDiceSide = 0;
-
-        int finalSide = 0;
 
         yield return new WaitForSeconds(0.05f);
 
@@ -53,8 +56,9 @@ public class Dice : MonoBehaviour
             yield return new WaitForSeconds(0.05f);
         }
 
-        finalSide = randomDiceSide + 1;
-        sideUp = finalSide;
+        rend.sprite = diceSides[r - 1];
+
+        sideUp = r;
         dicePosition = getDicePosition();
     }
 
@@ -76,6 +80,12 @@ public class Dice : MonoBehaviour
         }
 
         return false;
+    }
+
+    public bool isStopped()
+    {
+        if (Time.time - timeCreated < 0.1) return false;
+        return this.rbDice.velocity.magnitude <= 0;
     }
 
     public void DestroyDice()
