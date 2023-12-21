@@ -2350,7 +2350,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 3414873571577961201, guid: bbc76ae144a2e3b4d9405538a55c3938, type: 3}
-  enemyPrefab: {fileID: 7139864440552975199, guid: fbf82a269101fed498583cc63d4eedd0, type: 3}
+  enemyGO: {fileID: 0}
+  DeathPrefab: {fileID: 5180164814114095081, guid: 7644619d3a111df4d8bdcda7e18c2da7, type: 3}
+  LoversPrefab: {fileID: 7139864440552975199, guid: fbf82a269101fed498583cc63d4eedd0, type: 3}
   playerBattleStation: {fileID: 484966236}
   enemyBattleStation: {fileID: 1340672126}
   playerHUD: {fileID: 168126023}
@@ -3197,11 +3199,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a69d5c13ea258348bf1ca85646c1dae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridManager: {fileID: 0}
   grassUnits: []
   forestUnits: []
-  levelTextBox: {fileID: 0}
-  healthTextBox: {fileID: 0}
+  allMoves: []
+  tileHolder: {fileID: 0}
   player: {fileID: 0}
   enemy: {fileID: 0}
 --- !u!4 &1698943362

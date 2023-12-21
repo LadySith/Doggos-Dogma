@@ -1047,6 +1047,14 @@ MonoBehaviour:
   forestUnits:
   - {fileID: 5180164814114095081, guid: 7644619d3a111df4d8bdcda7e18c2da7, type: 3}
   - {fileID: 7139864440552975199, guid: fbf82a269101fed498583cc63d4eedd0, type: 3}
+  allMoves:
+  - {fileID: 3044683985434040115, guid: b5e2f78a796bd7046852fa3b28d98a12, type: 3}
+  - {fileID: 7588055831678534123, guid: e1a937a27b489e34eac2437ce7178aef, type: 3}
+  - {fileID: 798011300405260793, guid: 3c6c6fcfc7e07fa4ca2423f778757105, type: 3}
+  - {fileID: 8628864118359821497, guid: 919e1c88c70a1c7468fd7252e0dcf8a0, type: 3}
+  - {fileID: 3785544314416811614, guid: 6c3618903e1fc6d448c6e2c587e4817b, type: 3}
+  - {fileID: 7125302495810799426, guid: 2c212e4ed304ff943ae8d8e6e6dee8af, type: 3}
+  - {fileID: 3332022017420946872, guid: fc06f3e18cdf52f4482f837dc7540a18, type: 3}
   tileHolder: {fileID: 1883596844}
   player: {fileID: 2146713278}
   enemy: {fileID: 0}

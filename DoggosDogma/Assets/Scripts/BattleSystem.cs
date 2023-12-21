@@ -10,7 +10,11 @@ public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST}
 public class BattleSystem : MonoBehaviour
 {
     public GameObject playerPrefab;
-    public GameObject enemyPrefab;
+
+    public GameObject enemyGO;
+
+    public GameObject DeathPrefab;
+    public GameObject LoversPrefab;
 
     public Transform playerBattleStation;
     public Transform enemyBattleStation;
@@ -40,8 +44,17 @@ public class BattleSystem : MonoBehaviour
         playerUnit.setVisible(true);
         bowl.setUpBoard(playerUnit);
 
-        GameObject enemyGO = Instantiate(enemyPrefab, enemyBattleStation);
-        enemyUnit = enemyGO.GetComponent<Unit>();
+        enemyUnit = GameManager.instance.enemy;
+
+        if (enemyUnit.name == "Death")
+        {
+            enemyGO = Instantiate(DeathPrefab, enemyBattleStation);
+        } else if (enemyUnit.name == "Lovers")
+        {
+            enemyGO = Instantiate(LoversPrefab, enemyBattleStation);
+        }
+        //GameObject enemyGO = Instantiate(enemyPrefab, enemyBattleStation);
+        //enemyUnit = enemyGO.GetComponent<Unit>();
 
         dialogueText.SetText("You encountered " + enemyUnit.unitName + "!");
 
@@ -54,13 +67,13 @@ public class BattleSystem : MonoBehaviour
         PlayerTurn();
     }
 
-    IEnumerator PlayerAttack()
+    IEnumerator PlayerAttack(Move m)
     {
         dialogueText.text = playerUnit.unitName + " attacks!";
 
         yield return new WaitForSeconds(1f);
 
-        bool isDead = enemyUnit.updateHealth(playerUnit.move1.healthPoints);
+        bool isDead = enemyUnit.updateHealth(m.healthPoints);
 
         enemyHUD.SetHP(enemyUnit);
 
@@ -130,12 +143,12 @@ public class BattleSystem : MonoBehaviour
         if (state != BattleState.PLAYERTURN)
             return;
 
-        StartCoroutine(PlayerHeal());
+        //StartCoroutine(PlayerHeal());
     }
 
-    IEnumerator PlayerHeal()
+    IEnumerator PlayerHeal(Move m)
     {
-        playerUnit.Heal(5);
+        playerUnit.updateHealth(m.healthPoints);
 
         playerHUD.SetHP(playerUnit);
         dialogueText.SetText("You've been healed.");
@@ -178,5 +191,38 @@ public class BattleSystem : MonoBehaviour
         playerUnit.setVisible(false);
         GameManager.instance.tileHolder.SetActive(true);
         SceneManager.LoadScene("Game");
+    }
+
+    public void doMove(int x)
+    {
+        Move thisMove;
+        if (x == 1)
+        {
+            thisMove = GameManager.instance.findMove(bowl.Move1Text.text);
+        } else if (x == 2)
+        {
+            thisMove = GameManager.instance.findMove(bowl.Move2Text.text);
+        } else if (x == 3)
+        {
+            thisMove = GameManager.instance.findMove(bowl.Move3Text.text);
+        } else if (x == 4)
+        {
+            thisMove = GameManager.instance.findMove(bowl.Move4Text.text);
+        } else
+        {
+            thisMove = null;
+        }
+
+        if (state == BattleState.PLAYERTURN)
+        {
+            if (thisMove.moveName == "Heal")
+            {
+                StartCoroutine(PlayerHeal(thisMove));
+                return;
+            } else
+            {
+                StartCoroutine(PlayerAttack(thisMove));
+            }
+        }
     }
 }

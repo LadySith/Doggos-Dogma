@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
     public List<GameObject> grassUnits;
     public List<GameObject> forestUnits;
 
+    public List<Move> allMoves;
+
     public Dictionary<Vector2, Tile> tiles;
 
     public GameObject tileHolder;
@@ -61,5 +63,18 @@ public class GameManager : MonoBehaviour
     public GameObject getRandomUnit(List<GameObject> list)
     {
         return(list[Random.Range(0, list.Count)]);
+    }
+
+    public Move findMove(string moveName)
+    {
+        for (int i = 0; i < allMoves.Count; i++)
+        {
+            if (moveName == allMoves[i].moveName)
+            {
+                return allMoves[i];
+            }
+        }
+
+        return null;
     }
 }

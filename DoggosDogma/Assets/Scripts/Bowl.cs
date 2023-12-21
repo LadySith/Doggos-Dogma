@@ -16,6 +16,8 @@ public class Bowl : MonoBehaviour
     public TextMeshProUGUI Move3Text;
     public TextMeshProUGUI Move4Text;
 
+    public List<int> moveOrder = new();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +34,7 @@ public class Bowl : MonoBehaviour
             }
 
             dicePool.Clear();
+            moveOrder.Clear();
         }
 
         for (int i = 0; i < diceCount; i++)
@@ -39,7 +42,9 @@ public class Bowl : MonoBehaviour
             Vector2 randomPoint = new Vector2(this.transform.position.x, this.transform.position.y) + Random.insideUnitCircle * radius;
             Dice newDice = Instantiate(dicePrefab, new Vector3(randomPoint.x, randomPoint.y), Quaternion.identity);
             dicePool.Add(newDice);
-            newDice.Roll();
+            //newDice.Roll();
+
+            moveOrder.Add(newDice.Roll());
         }
     }
 
